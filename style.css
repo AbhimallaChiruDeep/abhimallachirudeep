@@ -1,0 +1,264 @@
+:root {
+    --bg-color: #050505;
+    --text-primary: #e0e0e0;
+    --accent-cyan: #00f3ff;
+    --accent-purple: #bc13fe;
+    --glass-bg: rgba(20, 20, 25, 0.7);
+    --border-color: rgba(0, 243, 255, 0.3);
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 18px;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Canvas Background */
+#neuralCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+/* Typography & Utilities */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+.section-title {
+    font-size: 2rem;
+    color: var(--accent-cyan);
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--accent-purple);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background: rgba(5, 5, 5, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--accent-purple);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+}
+
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+.nav-links a:hover { color: var(--accent-purple); text-shadow: 0 0 8px var(--accent-purple); }
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    
+    /* The Gradient Background */
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    
+    /* 1. The Vendor Prefix (for Chrome, Safari, Edge) */
+    -webkit-background-clip: text;
+    
+    /* 2. The Standard Property (Add this to fix the warning) */
+    background-clip: text; 
+    
+    /* 3. Make text transparent so background shows through */
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback for standard browsers */
+}
+
+#typing-text {
+    font-size: 1.5rem;
+    color: var(--accent-cyan);
+    margin-bottom: 1rem;
+    min-height: 1.6em;
+}
+
+.location { color: #888; margin-bottom: 2rem; }
+
+.hero-btns .btn {
+    padding: 12px 30px;
+    margin: 10px;
+    border: 2px solid var(--accent-cyan);
+    font-family: var(--font-heading);
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.primary-btn { background: var(--accent-cyan); color: #000; }
+.primary-btn:hover { background: transparent; color: var(--accent-cyan); box-shadow: 0 0 15px var(--accent-cyan); }
+.secondary-btn { background: transparent; color: var(--accent-cyan); }
+.secondary-btn:hover { background: var(--accent-purple); border-color: var(--accent-purple); color: #fff; }
+
+/* Skills Grid */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-tag {
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+    padding: 8px 16px;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.skill-tag:hover {
+    background: var(--accent-cyan);
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+/* Timeline (Experience) */
+.timeline {
+    position: relative;
+    border-left: 2px solid var(--accent-purple);
+    margin-left: 1rem;
+    padding-left: 2rem;
+}
+
+.timeline-item {
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.6rem;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+    background: var(--bg-color);
+    border: 2px solid var(--accent-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.job-role { font-size: 1.3rem; color: var(--text-primary); font-weight: 700; }
+.job-company { color: var(--accent-cyan); font-family: var(--font-heading); margin-bottom: 0.5rem; }
+.job-date { color: #888; font-size: 0.9rem; margin-bottom: 1rem; display: block; }
+.job-desc li { margin-bottom: 0.5rem; list-style-type: square; margin-left: 1.5rem; color: #ccc; }
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    border-color: var(--accent-purple);
+    transform: translateY(-5px);
+}
+
+.project-title { font-size: 1.2rem; color: var(--accent-cyan); margin-bottom: 0.5rem; }
+.project-tech { font-size: 0.85rem; color: var(--accent-purple); margin-bottom: 1rem; display: block;}
+.project-desc { font-size: 0.95rem; color: #ccc; }
+
+/* Contact */
+.contact-box { text-align: center; }
+.contact-links { margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+.contact-item {
+    font-size: 1.2rem;
+    border: 1px solid var(--accent-cyan);
+    padding: 10px 20px;
+    color: var(--accent-cyan);
+}
+.contact-item:hover { background: var(--accent-cyan); color: #000; }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--accent-purple);
+    color: #666;
+    margin-top: 3rem;
+}
+
+/* Animations */
+.blink { animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .navbar { flex-direction: column; padding: 1rem; }
+    .nav-links { margin-top: 1rem; gap: 1rem; }
+    .timeline { margin-left: 0; padding-left: 1.5rem; border-left: 1px solid var(--accent-purple); }
+}
